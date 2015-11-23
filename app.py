@@ -1,26 +1,20 @@
-"""
-This is it guys
-"""
+from flask import Flask, request, render_template
 import urllib2, google, bs4, re
 
 app = Flask(__name__)
 
-"""
-whatever, just a test or something
-"""
-@app.route("/home")
+# This is a tiny application and only requires a app route. We can get the
+# query via a GET request parameter, much like how Google itself uses the get
+# parameter "q" for their query. We just need to process the query if it
+# exists and render the jinja template by supplying the result for the query.
 @app.route("/")
-def home():
-    return render_template("home.html")
-
-
-"""
-This is the search page, where you type in what you want to search
-"""
-@app.route("/search")
-@app.route("/search/")
 def search():
-    return render_template("home.html")
+    """
+    Performs a search if given a query via a GET parameter (query) and returns a
+    rendered Jinja template
+
+    Params:
+        none
 
 """
 This is the results page
