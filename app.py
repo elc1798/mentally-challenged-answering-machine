@@ -3,7 +3,7 @@ import urllib2, google, bs4, re
 
 app = Flask(__name__)
 
-# This is a tiny application and only requires a app route. We can get the
+# This is a tiny application and only requires an app route. We can get the
 # query via a GET request parameter, much like how Google itself uses the get
 # parameter "q" for their query. We just need to process the query if it
 # exists and render the jinja template by supplying the result for the query.
@@ -32,10 +32,22 @@ def search():
     webpage = wgotten.read()
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
     wtext = soup.get_text()
+    #print wtext
     # Run regex parsing to get the query
         # TODO: Write the code for the regex parsing
+        
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
+
+
+#@app.route("/index", methods = ["GET", "POST"])
+#@app.route("/index"/<tag>)
+#def index(tag=""):
+#    url = """
+#http://en.wikipedia.org/wiki/%s
+#    """
+#    if tag == "":
+#        return render_template("search.html")
 
 if __name__ == "__main__":
     app.debug = True
