@@ -7,7 +7,7 @@ app = Flask(__name__)
 # query via a GET request parameter, much like how Google itself uses the get
 # parameter "q" for their query. We just need to process the query if it
 # exists and render the jinja template by supplying the result for the query.
-@app.route("/")
+@app.route("/",methods=["GET"])
 def search():
     """
     Performs a search if given a query via a GET parameter (query) and returns a
