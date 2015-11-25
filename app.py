@@ -31,11 +31,12 @@ def search():
     wgotten = urllib2.urlopen(gsearch_res[0])
     webpage = wgotten.read()
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
-    wtext = soup.get_text()
+    wtext = beautified_soup.get_text()
+    print wtext
     #print wtext
     # Run regex parsing to get the query
         # TODO: Write the code for the regex parsing
-        
+    result = ""
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
 
