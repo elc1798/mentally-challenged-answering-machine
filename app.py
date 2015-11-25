@@ -34,6 +34,8 @@ def search():
     query = request.args["query"]
     print query
 
+    
+    
     #Grab the person's name from the query
     exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
     name = re.findall(exp,query)
