@@ -21,10 +21,25 @@ def search():
             QUERY = query
             RESULT = result
     """
+    print "test1"
+
     if "query" not in request.args:
+        print "test2"
+
         return render_template("index.html")
+
+    print "test3"
+    
     # Run a Google search for the query
     query = request.args["query"]
+    print query
+
+    #Grab the person's name from the query
+    exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
+    name = re.findall(exp,query)
+    #Hope, the name turns out to be normal, like John Cena
+    print name
+    
     gsearch_res = list(google.search(query, num=10, start=0, stop=10))
     # Get the web page and strip the tags. Note that 'wgotten' is a pun from
     # the wget command for retrieving webpages from the command line.
@@ -32,7 +47,8 @@ def search():
     webpage = wgotten.read()
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
     wtext = soup.get_text()
-    #print wtext
+
+    print wtext
     # Run regex parsing to get the query
         # TODO: Write the code for the regex parsing
         
