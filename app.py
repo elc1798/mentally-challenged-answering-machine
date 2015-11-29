@@ -50,7 +50,10 @@ def search():
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
     wtext = soup.get_text()
 
-    print wtext
+    #get the first paragraph
+    exp = "<p>*</p>"
+    result = re.findall(exp, wtext)
+    
     # Run regex parsing to get the query
         # TODO: Write the code for the regex parsing
         
