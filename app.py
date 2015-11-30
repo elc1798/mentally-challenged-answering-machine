@@ -36,10 +36,9 @@ def search():
     wgotten = urllib2.urlopen(gsearch_res[0])
     webpage = wgotten.read()
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
-    wtext = beautified_soup.get_text()
 
     # Run RegEx parsing
-    result = regex.parse(query,wtext)
+    result = regex.parse(query,beautified_soup)
 
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
