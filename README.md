@@ -12,3 +12,6 @@ Search for whatever you'd like, and get a list of (possibly correct) answers!
   - random cases (i.e. wHo, wHAT, etc.)
   - polish RegEx
   - add something to check relevancy of answers somehow
+
+# DISCLAIMER
+- Additions is very inflated for me from just adding styling stuff (courtesy of Ethan)! - Johnny
