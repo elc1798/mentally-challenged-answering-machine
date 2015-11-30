@@ -12,23 +12,39 @@ def parse(query,text):
         result - (String) Information you were looking for in text.
     """
 
-    # Get the stuff between the paragraphs tags
-    paragraph_exp = "p>([\w\s]*)</p"
-    paragraph_stuff = re.findall(paragraph_exp,text)
+    # If the query is asking "Who", "What", "Why", "How"
+       # for example, 
+       # "Who is John Cena?"
+       # "What is hydrogen sulfide?"
+       # "Why did the US enter the Vietnam War?"
+       # "How did the Union prevail over the Confederacy?"
+    # it would be better to have answers that are paragraphs
+    # they are more likely to answer the question
 
-    # If the query is asking "Who"
-    # if (who)
-    name_exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
-
-    # If the query is asking "What"
+    exp = "The Regular Expression used to search through text"
+    stuff = ["will be a list of tuples later after using re.findall"]
+        
+    if query[0:2]=="Who" or query[0:3]=="What" or query[0:2]=="Why" or query[0:2]=="How":
+        # Get the stuff between the paragraphs tags
+        exp = "p>([\w\s]*)</p"
 
     # If the query is asking "Where"
+    if query[0:4] == "Where":
+        # Look for something along the lines of "United States"
+        exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
 
     # If the query is asking "When"
-
-    # If the query is asking "Why"
-
-    # If the query is asking "How"
+    if query[0:3] == "When":
+        # Look for something along the lines of "January 1,
+        exp = "[A-Z][a-z]+\s\d\d,\s\d\d\d\d"
     
-    result = ""
+    stuff = re.findall(exp,text)
+
+    # Filter stuff into result
+    result = []
+    i = 0
+    while i < len(stuff):
+        result.append(stuff[i])
+        i+= 1
+
     return result

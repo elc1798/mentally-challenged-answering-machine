@@ -27,12 +27,6 @@ def search():
 
     # Get the query from the form
     query = request.args["query"]
-    
-    #Grab the person's name from the query
-    exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
-    name = re.findall(exp,query)
-    
-    #Hopefully, the name turns out to be normal, like John Cena
 
     # Run a Google search for the query
     gsearch_res = list(google.search(query, num=10, start=0, stop=10))
@@ -45,23 +39,7 @@ def search():
     wtext = beautified_soup.get_text()
 
     # Run RegEx parsing
-
-    # Get the stuff between the paragraph tags
-    paragraph_exp = "p>([\w\s]*)</p"
-    paragraph_stuff = re.findall(exp,wtext)
-
-    print "Query: " + query
-    print "Name: " + name[0]
-    print len(paragraph_stuff)
-
-    # Filter the RegEx parsing stuff into result
-    result = []
-    i = 0
-    while i < len(paragraph_stuff):
-        result.append(paragraph_stuff[i])
-        i+= 1
-
-    #result = regex.parse(query,wtext)
+    result = regex.parse(query,wtext)
 
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
