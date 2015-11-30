@@ -32,23 +32,11 @@ def search():
     webpage = wgotten.read()
     beautified_soup = bs4.BeautifulSoup(webpage,'html')
     wtext = beautified_soup.get_text()
-    print wtext
-    #print wtext
     # Run regex parsing to get the query
         # TODO: Write the code for the regex parsing
     result = ""
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
-
-
-#@app.route("/index", methods = ["GET", "POST"])
-#@app.route("/index"/<tag>)
-#def index(tag=""):
-#    url = """
-#http://en.wikipedia.org/wiki/%s
-#    """
-#    if tag == "":
-#        return render_template("search.html")
 
 if __name__ == "__main__":
     app.debug = True
