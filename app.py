@@ -31,6 +31,7 @@ def search():
     #Grab the person's name from the query
     exp = "[A-Z][a-z]+\s+[A-Z][a-z]+"
     name = re.findall(exp,query)
+    
     #Hopefully, the name turns out to be normal, like John Cena
 
     # Run a Google search for the query
@@ -49,7 +50,20 @@ def search():
     paragraph = "<p>(*)</p>"
     paragraph_stuff = re.findall(exp,wtext)
 
-    result = paragraph_stuff
+    print "Query: " + query
+    print "Name: " + name[0]
+
+    i = 0
+    while i < 10:
+        print paragraph_stuff[i]
+        i+= 1
+
+    # Filter the RegEx parsing stuff into result
+    result = []
+    i = 0
+    while i < 10:
+        result.append(paragraph_stuff[i])
+        i+= 1
 
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)

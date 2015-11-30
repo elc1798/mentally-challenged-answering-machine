@@ -14,11 +14,17 @@
   <button href="#" type="submit" class="btn btn-default">Search</button>
 </form>
 
-{% if query %}
-query
+{% if QUERY %}
+{{ QUERY }}
 {% endif %}
 
-{% if result %}
-result
+{% if RESULT  %}
+<center>
+<ul>
+{% for result in RESULT %}
+  <li> {{ result }} </li>
+{% endfor %}
+</ul>
+</center>
 {% endif %}
 {% endblock %}
