@@ -52,16 +52,12 @@ def search():
 
     print "Query: " + query
     print "Name: " + name[0]
-
-    i = 0
-    while i < 10:
-        print paragraph_stuff[i]
-        i+= 1
+    print len(paragraph_stuff)
 
     # Filter the RegEx parsing stuff into result
     result = []
     i = 0
-    while i < 10:
+    while i < len(paragraph_stuff):
         result.append(paragraph_stuff[i])
         i+= 1
 
