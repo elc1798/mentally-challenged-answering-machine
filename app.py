@@ -51,7 +51,7 @@ def search():
     wtext = soup.get_text()
 
     #get the first paragraph
-    exp = "<p>*</p>"
+    exp = "<p>(*)</p>"
     result = re.findall(exp, wtext)
     
     # Run regex parsing to get the query
