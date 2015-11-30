@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block body %}
-<h1>  hello </h1>
+<h1> Search: </h1>
 <form method="GET" class="form-inline" role="form">
   <input type="text" class="form-control"
                      id="query"
                      name="query"
-                     placeholder="Somebodayyy" autofocus>
+                     placeholder="Who is John Cena?" autofocus>
   <button href="#" type="submit" class="btn btn-default">Search</button>
 </form>
 
 {% if QUERY %}
-{{ QUERY }}
+<h2> {{ QUERY }} </h2>
 {% endif %}
 
 {% if RESULT  %}
