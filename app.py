@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import urllib2, google, bs4, re
+import urllib2, google, bs4, re, regex
 
 app = Flask(__name__)
 
@@ -60,6 +60,8 @@ def search():
     while i < len(paragraph_stuff):
         result.append(paragraph_stuff[i])
         i+= 1
+
+    #result = regex.parse(query,wtext)
 
     # Return the rendered Jinja template
     return render_template("index.html", QUERY=query, RESULT=result)
