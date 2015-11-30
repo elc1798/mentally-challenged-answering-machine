@@ -46,7 +46,7 @@ def search():
     # Run RegEx parsing
 
     # Get the stuff between the paragraph tags
-    paragraph = "<p>(*)</p>"
+    paragraph = "p>([\w\s]*)</p"
     paragraph_stuff = re.findall(exp,wtext)
 
     result = paragraph_stuff
